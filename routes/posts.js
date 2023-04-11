@@ -45,15 +45,26 @@ router.post('/', [
 
         let datas = [];
         
-        posts.forEach(post => {
+        if (posts.length > 1){
+            posts.forEach(post => {
+                let data = {};
+
+                data["thumbnail"]=post.thumb;
+
+                data["media"]=post.url;
+
+                
+            });
+        }else{
             let data = {};
 
-            data["thumbnail"]=post.thumb;
+            data["thumbnail"]=posts.thumb;
 
-            data["media"]=post.url;
-
+            data["media"]=posts.url;
             datas.push(data);
-        });
+        }
+        
+        
 
         return resp.status(200).json({
             status: true,
