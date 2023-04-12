@@ -53,7 +53,7 @@ router.post('/', [
 
                 data["media"]=post.url;
 
-                
+                datas.push(data);
             });
         }else{
             let data = {};
